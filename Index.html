@@ -1,0 +1,38 @@
+<script>
+    const tg = window.Telegram.WebApp;
+    
+    // Memberitahu Telegram untuk menyesuaikan tampilan
+    tg.ready();
+    tg.expand(); // Membuka layar penuh ke atas
+
+    // --- KONFIGURASI MAIN BUTTON (TOMBOL MERAH) ---
+    tg.MainButton.setText("🔙 KEMBALI KE MENU");
+    tg.MainButton.setParams({
+        color: "#ff3b30", // WARNA MERAH IPHONE (SOLID)
+        text_color: "#ffffff",
+        is_active: True,
+        is_visible: True
+    });
+    
+    // Memunculkan tombolnya di paling bawah layar
+    tg.MainButton.show();
+
+    // Logic ketika tombol MERAH diklik
+    tg.MainButton.onClick(function() {
+        tg.close(); // Menutup Mini App dan kembali ke chat bot
+    });
+
+    // --- OPSIONAL: SECONDARY BUTTON (TOMBOL BIRU/HIJAU) ---
+    // Jika lo mau tambah tombol lain di atas tombol merah
+    tg.SecondaryButton.setText("💬 HUBUNGI ADMIN");
+    tg.SecondaryButton.setParams({
+        color: "#34c759", // WARNA HIJAU (SOLID)
+        text_color: "#ffffff",
+        is_visible: True
+    });
+    tg.SecondaryButton.show();
+    
+    tg.SecondaryButton.onClick(function() {
+        tg.openTelegramLink("https://t.me/GANTI_USERNAME_ADMIN");
+    });
+</script>
